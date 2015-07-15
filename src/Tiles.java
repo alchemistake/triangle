@@ -136,11 +136,6 @@ public class Tiles {
                 tiles[j*j - 2 * i].moveRight();
             }
         }
-
-        /*for (int i = 0; i < 25; i++) {
-            tiles[i].moveRight();
-        }
-        */
     }
 
     public void randomGenerator(){
@@ -163,6 +158,9 @@ public class Tiles {
             if(tiles[i].value == 0)
                 return true;
         }
-        return false;
+        for (int i = 0; i < 25; i++) {
+            tiles[i].value = 0;
+        }
+        return true;
     }
 }

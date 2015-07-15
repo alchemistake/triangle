@@ -32,7 +32,30 @@ public class Game extends JPanel {
         int k = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 2 * i + 1; j++) {
+                if(tiles.tiles[k].value == 1)
+                    g.setColor(Color.BLUE);
+                else if(tiles.tiles[k].value == 2)
+                    g.setColor(Color.CYAN);
+                else if(tiles.tiles[k].value == 3)
+                    g.setColor(Color.YELLOW);
+                else if(tiles.tiles[k].value == 4)
+                    g.setColor(Color.MAGENTA);
+                else if(tiles.tiles[k].value == 5)
+                    g.setColor(Color.ORANGE);
+                else if(tiles.tiles[k].value == 6)
+                    g.setColor(Color.PINK);
+                else if(tiles.tiles[k].value == 7)
+                    g.setColor(new Color(255, 96, 248));
+                else if(tiles.tiles[k].value == 8)
+                    g.setColor(new Color(18, 114, 185));
+                else if(tiles.tiles[k].value == 9)
+                    g.setColor(Color.GREEN);
+                else if(tiles.tiles[k].value == 10)
+                    g.setColor(Color.GRAY);
+
                 g.drawString(String.valueOf(tiles.tiles[k++].value), 250+(j-i)*50 , i*90 + 45);
+                if(k != 25 && tiles.tiles[k].value == 0)
+                    g.setColor(Color.WHITE);
             }
         }
     }
@@ -43,14 +66,17 @@ public class Game extends JPanel {
             if(e.getKeyCode() == KeyEvent.VK_UP){
                 tiles.playUp();
                 tiles.randomGenerator();
+                tiles.isGameOn();
                 repaint();
             }else if(e.getKeyCode() == KeyEvent.VK_LEFT){
                 tiles.playLeft();
                 tiles.randomGenerator();
+                tiles.isGameOn();
                 repaint();
             }if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                 tiles.playRight();
                 tiles.randomGenerator();
+                tiles.isGameOn();
                 repaint();
             }
         }
