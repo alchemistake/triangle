@@ -2,7 +2,7 @@
  * Created by Caner on 14/07/2015.
  */
 public class Tile {
-    Tile up,left,right,opUp,opLeft,opRight;
+    Tile up,left,right;
     int value;
 
     public Tile(Tile up, Tile left, Tile right) {
@@ -10,12 +10,6 @@ public class Tile {
         this.up = up;
         this.left = left;
         this.right = right;
-        if(up != null)
-            up.setOpUp(this);
-        if(left != null)
-            left.setOpLeft(this);
-        if(right != null)
-            right.setOpRight(this);
     }
 
     public void moveUp(){
@@ -25,8 +19,7 @@ public class Tile {
             else if(up.value == 0)
                 up.value = value;
             value = 0;
-            if(opUp != null)
-                opUp.moveUp();
+            up.moveUp();
         }
     }
 
@@ -37,8 +30,7 @@ public class Tile {
             else if(left.value == 0)
                 left.value = value;
             value = 0;
-            if(opUp != null)
-                opUp.moveLeft();
+            left.moveLeft();
         }
     }
 
@@ -49,38 +41,20 @@ public class Tile {
             else if(right.value == 0)
                 right.value = value;
             value = 0;
-            if(opRight != null)
-                opRight.moveRight();
+            right.moveRight();
         }
     }
 
     public void setUp(Tile up) {
         this.up = up;
-        if(up != null)
-            up.setOpUp(this);
     }
 
     public void setLeft(Tile left) {
         this.left = left;
-        if(left != null)
-            left.setOpLeft(this);
     }
 
     public void setRight(Tile right) {
         this.right = right;
-        if(right != null)
-            right.setOpRight(this);
     }
 
-    private void setOpUp(Tile opUp) {
-        this.opUp = opUp;
-    }
-
-    private void setOpLeft(Tile opLeft) {
-        this.opLeft = opLeft;
-    }
-
-    private void setOpRight(Tile opRight) {
-        this.opRight = opRight;
-    }
 }

@@ -79,6 +79,21 @@ public class Main {
 //        return true;
 //    }
     public static void main(String[] args) {
+        Tiles tiles = new Tiles();
+        Scanner scanner = new Scanner(System.in);
+
+        do{
+            tiles.randomGenerator();
+            System.out.println(tiles);
+            String str = scanner.next().toLowerCase();
+            if(str.charAt(0)=='w')
+                tiles.playUp();
+            else if(str.charAt(0) == 'a')
+                tiles.playLeft();
+            else if(str.charAt(0) == 'd')
+                tiles.playRight();
+        }while(tiles.isGameOn());
+    }
         // LEFT
 
 //        for (int i = 0; i < 5; i++) {
@@ -101,5 +116,5 @@ public class Main {
 //                System.out.println(j*j - 2 * i);
 //            }
 //        }
-    }
+//    }
 }
